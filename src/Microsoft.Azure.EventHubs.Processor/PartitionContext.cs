@@ -183,7 +183,7 @@ namespace Microsoft.Azure.EventHubs.Processor
                 {
                     if (inStoreCheckpoint == null)
                     {
-                        await this.host.CheckpointManager.CreateCheckpointIfNotExistsAsync(checkpoint.PartitionId).ConfigureAwait(false);
+                        inStoreCheckpoint = checkpoint;
                     }
 
                     await this.host.CheckpointManager.UpdateCheckpointAsync(this.Lease, checkpoint).ConfigureAwait(false);
